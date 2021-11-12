@@ -30,3 +30,15 @@ def install_languages(path_to_language_models=DEFAULT_LANGUAGE_MODEL_PATH):
    # Loop through list of .argos files in our language_model folder and install them.
    for package_path in get_files_for_installation(path_to_language_models):
       package.install_from_path(package_path)
+
+
+def get_language_model_to_english(source_language):
+   '''This function gets the argos language model in order for our translation to take place. Returns the correct model.'''
+
+   lang = f'{source_language} -> English'
+   source_lang = [model for model in translate.get_installed_languages() if lang in map(repr, model.translations_from)]
+   target_lang = [model for model in translate.get_installed_languages() if lang in map(repr, model.translations_to)]
+
+   return source_lang[0].get_translation(target_lang[0])
+
+# Example use of translation -> get_language_model_to_english('Russian').translate('что слишком сознавать — это болезнь, настоящая, полная болезнь.')
