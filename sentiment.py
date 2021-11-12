@@ -3,7 +3,7 @@ import nltk
 from nltk import sentiment
 from nltk.sentiment import SentimentIntensityAnalyzer
 
-# TODO: Find a way of installing this offline.
+# TODO: Find a way of installing this offline. https://www.nltk.org/data.html shows this.
 
 nltk.download(['vader_lexicon']) # VADER best for short pieces of text with slang
 
