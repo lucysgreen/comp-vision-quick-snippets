@@ -1,0 +1,9 @@
+# Flask
+flask
+python-dotenv
+
+# Gunicorn
+gunicorn
+
+# Requests
+requests
