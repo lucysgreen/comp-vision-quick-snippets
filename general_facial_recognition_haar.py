@@ -17,9 +17,10 @@ def drawBoxes(faces, img):
 
 def collectFaces(img, gray):
     # Make cascade and classify faces
-    face_cascade = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')  
-    faces = face_cascade.detectMultiScale(gray, scaleFactor=2.1, minNeighbors=5, minSize=(40,40))
-    return faces
+    face_cascade = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
+    return face_cascade.detectMultiScale(
+        gray, scaleFactor=2.1, minNeighbors=5, minSize=(40, 40)
+    )
 
 # Main 
 path = "./images/test.png"
