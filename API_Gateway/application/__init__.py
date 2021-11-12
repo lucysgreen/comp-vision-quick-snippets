@@ -29,8 +29,10 @@ def init_app(config_name):
 
         # Include our application's routes.
         from .example_blueprint import example_blueprint
+        from .healthcheck import healthcheck_blueprint
 
         # Register any application blueprints.
         app.register_blueprint(example_blueprint.example_bp)
+        app.register_blueprint(healthcheck_blueprint.healthcheck_bp)
 
         return app

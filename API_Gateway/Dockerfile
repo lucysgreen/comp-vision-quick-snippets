@@ -1,7 +1,7 @@
 FROM python:3.8.5-buster
 
 LABEL version="1.0.0"
-LABEL description="Example App - Container"
+LABEL description="Comp Vision - API Gateway"
 
 ENV FLASK_ENV production
 

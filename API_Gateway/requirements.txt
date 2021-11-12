@@ -1,6 +1,7 @@
 # Flask
 flask
 python-dotenv
+python-environ
 
 # Gunicorn
 gunicorn
