@@ -23,6 +23,10 @@ class ProductionConfig(Config):
 
     SECRET_KEY = environ.get("PROD_SECRET_KEY")
 
+    # API URLs
+
+    TRANSLATE_API_URL = "0.0.0.0/5000"  # The root url of our translate API. Must not have '/' at end.
+
 
 class DevelopmentConfig(Config):
     '''Configures the Development Config of our app.'''
@@ -34,6 +38,10 @@ class DevelopmentConfig(Config):
 
     SECRET_KEY = environ.get('DEV_SECRET_KEY')
 
+    # API URLs
+
+    TRANSLATE_API_URL = "0.0.0.0/5000"  # The root url of our translate API. Must not have '/' at end.
+
 
 class TestingConfig(Config):
     '''Configures the Testing Config of our app.'''
@@ -44,6 +52,10 @@ class TestingConfig(Config):
     ENV = 'Testing'
 
     SECRET_KEY = environ.get('TEST_SECRET_KEY')
+
+    # API URLs
+
+    TRANSLATE_API_URL = "0.0.0.0/5000"  # The root url of our translate API. Must not have '/' at end.
 
 # It is good practice to specify configurations for different environments.
 # Below, we consolidate these configuration names into a dictionary.

@@ -32,6 +32,12 @@ def install_languages(path_to_language_models=DEFAULT_LANGUAGE_MODEL_PATH):
       package.install_from_path(package_path)
 
 
+def return_installed_languages():
+   '''This function returns a list of every installed language.'''
+
+   return [str(lang) for lang in translate.get_installed_languages()]
+
+
 def get_language_model_to_english(source_language):
    '''This function gets the argos language model in order for our translation to take place. Returns the correct model.'''
 
