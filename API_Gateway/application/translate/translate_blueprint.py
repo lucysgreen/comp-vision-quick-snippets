@@ -36,13 +36,41 @@ def translate_route():
         # Limit string to 512 words.
 
         # Build the URL for our source-languages request.
-        url = str(app.config['TRANSLATE_URL'] + "ENDPOINT HERE")
+        url = str(app.config['TRANSLATE_API_URL'] + "ENDPOINT HERE")
 
         return make_response(
             jsonify(
                 message = "API Gateway is healthy."
             ), 200)
 
+
+@translate_bp.route("/identify", methods=["GET", "POST"])
+def translate_route():
+    """This route handles our API response for the microservice which identifies languages."""
+
+    if request.method == "GET":
+
+        return make_response(
+            jsonify(
+                help_message = "Insert how to use this API route here."
+            ), 200)
+
+
+    if request.method == "POST":
+
+        # Post request will send off to our identify microservice.
+
+        # First, we check our response to see if it is in the correct format.
+
+        # Limit string to 512 words.
+
+        # Build the URL for our source-languages request.
+        url = str(app.config['IDENTIFY_API_URL'] + "ENDPOINT HERE")
+
+        return make_response(
+            jsonify(
+                message = "API Gateway is healthy."
+            ), 200)
 
 @translate_bp.route("/source-languages", methods=["GET", "POST"])
 def translate_route():
@@ -60,6 +88,6 @@ def translate_route():
         # Post request will send off to our translate microservice.
 
         # Build the URL for our source-languages request.
-        url = str(app.config['TRANSLATE_URL'] + "ENDPOINT HERE")
+        url = str(app.config['TRANSLATE_API_URL'] + "ENDPOINT HERE")
 
         return requests.get(url)

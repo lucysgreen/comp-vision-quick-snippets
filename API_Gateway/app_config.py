@@ -23,10 +23,13 @@ class ProductionConfig(Config):
 
     SECRET_KEY = environ.get("PROD_SECRET_KEY")
 
-    # API URLs
+    # API URLs - The root urls of each service - must not have '/' at end.
 
-    TRANSLATE_API_URL = "0.0.0.0/5000"  # The root url of our translate API. Must not have '/' at end.
-
+    TRANSLATE_API_URL = "0.0.0.0/5000"
+    IDENTIFY_API_URL = "0.0.0.0/5000"
+    SENTIMENT_API_URL = "0.0.0.0/5000"
+    REDACT_API_URL = "0.0.0.0/5000"
+    FACIAL_RECOGNITION_API_URL = "0.0.0.0/5000"
 
 class DevelopmentConfig(Config):
     '''Configures the Development Config of our app.'''
