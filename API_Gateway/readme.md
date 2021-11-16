@@ -11,6 +11,26 @@ GET
 
 It will return a 200 response, with a corresponding message if healthy.
 
+## Translate Endpoint
+
+Our Translation API utilises the same 
+
+POST Request in JSON format to a given endpoint.
+
+{
+    "Text": "",
+    "SourceLanguageCode": "auto",
+    "TargetLanguageCode": "en"
+}
+
+RETURNS:
+
+{
+    "TranslatedText": "",
+    "SourceLanguageCode": "",
+    "TargetLanguageCode": ""
+}
+
 ### Posting Images to our API.
 
 Code Snippet - Python
