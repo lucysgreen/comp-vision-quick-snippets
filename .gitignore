@@ -133,3 +133,4 @@ dmypy.json
 
 # Translation
 *.argosmodel
+*LanguageModels.zip
