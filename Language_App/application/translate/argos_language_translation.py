@@ -15,6 +15,10 @@ detector = gcld3.NNetLanguageIdentifier(
     max_num_bytes=5000  # Maximum for AWS Translate.
 )
 
+##########################################
+### AUTO INSTALLER FOR ARGOS LANGUAGES ###
+##########################################
+
 def get_files_for_argos_installation(path_to_language_models=DEFAULT_LANGUAGE_MODEL_PATH):
    '''This function walks through our language_models folder and returns a list of files that end in .argos or .argosmodel'''
    
@@ -35,10 +39,20 @@ def get_files_for_argos_installation(path_to_language_models=DEFAULT_LANGUAGE_MO
 def install_argos_languages(path_to_language_models=DEFAULT_LANGUAGE_MODEL_PATH):
    '''This function installs our argos language models from language_models folder.'''
 
+   print("Installing Languages...")
+   
    # Loop through list of .argos files in our language_model folder and install them.
    for package_path in get_files_for_argos_installation(path_to_language_models):
       package.install_from_path(package_path)
 
+   print("Languages Installed!")
+
+# Trigger installer when script loads.
+install_argos_languages()
+
+#####################
+### API FUNCTIONS ###
+#####################
 
 def return_installed_argos_languages():
    '''This function returns a list of every installed language.'''

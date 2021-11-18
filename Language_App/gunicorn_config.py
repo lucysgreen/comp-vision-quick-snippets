@@ -10,3 +10,5 @@ reload = True
 # logging
 accesslog = '-'
 errorlog = '-'
+
+timeout = 300

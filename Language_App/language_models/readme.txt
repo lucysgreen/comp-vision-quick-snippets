@@ -1,5 +1,7 @@
 Please download argos language models into this folder!
 
+Zipped is a list of all offered at time of development.
+
 https://www.argosopentech.com/argospm/index/
 
 Offered languages:
