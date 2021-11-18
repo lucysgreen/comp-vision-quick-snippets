@@ -1,0 +1,14 @@
+# Flask
+flask
+python-dotenv
+
+# Gunicorn
+gunicorn
+
+# Translation
+argostranslate
+pycountry
+gcld3
+
+# Requests
+requests
