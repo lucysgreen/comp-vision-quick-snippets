@@ -37,14 +37,11 @@ def translate_route():
 def identify_route():
     """This route is used to identify unknown languages."""
 
-    # First, get request from API gateway.
+    # First, get our Text content from request by API gateway.
 
-    request_data = request.data
+    request_data = request.args.get('Text')
 
-    print(request_data)
-
-    #return argos_language_translation.glcd3_language_detector(request_data)
-    return 'Hello!'
+    return glcd3_language_detector(request_data)
 
 @translate_bp.route("/source-languages", methods=["GET"])
 def source_languages_route():
@@ -56,5 +53,4 @@ def source_languages_route():
 
     print(request_data)
 
-    #return argos_language_translation.return_installed_argos_languages()
-    return 'Howdy!'
+    return make_response(jsonify(return_installed_argos_languages()), 200)

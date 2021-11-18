@@ -47,24 +47,32 @@ def return_installed_argos_languages():
 
 
 def glcd3_language_detector(text="Hello World!"):
-    '''This function detects the most probable language from a given string and returns a comprehensive dictionary of what and why using GLCD3.'''
+   '''This function detects the most probable language from a given string and returns a comprehensive dictionary of what and why using GLCD3.'''
 
-    result = detector.FindLanguage(text=text)  # Here, we detect our language.
+   result = detector.FindLanguage(text=text)  # Here, we detect our language.
+
+   print(result.language)
     
-    if result.language != 'und':  # If the result is undefined, we cannot define a country for it.
-        languagecode = result.language
-        result.language = languages.get(alpha_2=result.language).name  # Here, we replace the language shorthand name with it's full name.
-    else:
-        languagecode = 'und'
-        result.language = 'Undefined'
+   if result.language != 'und':  # If the result is undefined, we cannot define a country for it.
+      languagecode = result.language
 
-    return {
-        "LanguageName": result.language,
-        "LanguageCode": result.languagecode,
-        "Is Reliable?": result.is_reliable,
-        "Proportion of Text with this Language": result.proportion,
-        "Probability": result.probability,
-    }
+      if languages.get(alpha_2=result.language):
+         result.language = languages.get(alpha_2=result.language).name  # Here, we replace the language shorthand name with it's full name.
+   
+      else:
+         result.language = "Unknown ISO Code"
+   else:
+      languagecode = 'und'
+      result.language = 'Undefined'
+
+   return {
+      "Text": text,
+      "LanguageName": result.language,
+      "LanguageCode": languagecode,
+      "IsReliable": result.is_reliable,
+      "ProportionTextWithLanguage": result.proportion,
+      "Probability": result.probability
+   }
 
 def argos_translate_to_english(translation_dictionary):
    '''
