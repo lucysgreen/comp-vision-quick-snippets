@@ -1,0 +1,12 @@
+# Flask
+flask
+python-dotenv
+
+# Gunicorn
+gunicorn==19.3.0
+
+# Redact
+fuzzywuzzy
+
+# Requests
+requests
